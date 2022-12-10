@@ -1,4 +1,4 @@
-package day5;
+package day05;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -6,14 +6,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Stack;
 
-public class SupplyStacks {
+public class SupplyStacks2 {
 
-	private final static String INPUT_LOCATION = "C:\\Users\\Matthew Boyd\\Documents\\code\\advent-of-code-2022\\AoC2022\\src\\day5\\input.txt";
+	private final static String INPUT_LOCATION = "C:\\Users\\Matthew Boyd\\Documents\\code\\advent-of-code-2022\\AoC2022\\src\\day05\\input.txt";
 
 	public static void main(String[] args) {
 		@SuppressWarnings("rawtypes")
 		ArrayList<Stack> stacks = new ArrayList<>();
-		//make array 0 indexed
+		// make array 0 indexed
 		stacks.add(null);
 		ArrayList<char[]> data = new ArrayList<>();
 
@@ -32,7 +32,7 @@ public class SupplyStacks {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		//puts crates into stacks in arrayList
+		// puts crates into stacks in arrayList
 		BufferedReader reader;
 		try {
 			reader = new BufferedReader(new FileReader(INPUT_LOCATION));
@@ -57,27 +57,38 @@ public class SupplyStacks {
 
 			String line = reader.readLine();// skips blank line
 
-			//loops over instructions moving crates around stacks
+			// loops over instructions moving crates around stacks
 			line = reader.readLine();
 			while (line != null) {
 				String[] instruction = line.split(" move | from | to ");
 				instruction[0] = instruction[0].substring(5, instruction[0].length());
-
+				// parses integers
 				int amount = Integer.parseInt(instruction[0]);
 				int source = Integer.parseInt(instruction[1]);
 				int destination = Integer.parseInt(instruction[2]);
+				@SuppressWarnings("unchecked") // trust me bro
+				Stack<Character> sourceStack = stacks.get(source);
+				@SuppressWarnings("unchecked")
+				Stack<Character> destStack = stacks.get(destination);
 
+				//if lifting multiple crates move them to temporary stack
+				//first and then destination to prevent reversing order
+				if (amount != 0) {
+					@SuppressWarnings({ "rawtypes", "unchecked" })
+					Stack<Character> tmpStack = new Stack();
+					for (int i = 0; i < amount; i++) {
+						char currentValue = sourceStack.pop(); // remove from sourceStack
+						tmpStack.push(currentValue); // moves item to above stack
+					}
+					sourceStack = tmpStack;
+				}
 				for (int i = 0; i < amount; i++) {
-					@SuppressWarnings("unchecked") // trust me bro
-					Stack<Character> currentStack = stacks.get(source);
-					char currentValue = (char) currentStack.pop();
-					@SuppressWarnings("unchecked")
-					Stack<Character> destStack = stacks.get(destination);
+					char currentValue = sourceStack.pop();
 					destStack.push(currentValue);
 				}
 				line = reader.readLine();
 			}
-			//prints crates at top of stacks at end of instructions
+			// prints crates at top of stacks at end of instructions
 			boolean skip = true;
 			for (@SuppressWarnings("rawtypes")
 			Stack stack : stacks) {

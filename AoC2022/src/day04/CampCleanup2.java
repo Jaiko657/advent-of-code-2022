@@ -1,4 +1,4 @@
-package day4;
+package day04;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -8,7 +8,7 @@ import java.util.stream.IntStream;
 
 public class CampCleanup2 {
 
-	private final static String INPUT_LOCATION = "C:\\Users\\Matthew Boyd\\Documents\\code\\advent-of-code-2022\\AoC2022\\src\\day4\\input.txt";
+	private final static String INPUT_LOCATION = "C:\\Users\\Matthew Boyd\\Documents\\code\\advent-of-code-2022\\AoC2022\\src\\day04\\input.txt";
 
 	public static void main(String[] args) {
 

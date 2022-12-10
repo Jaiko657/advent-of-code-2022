@@ -1,4 +1,4 @@
-package day8;
+package day08;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class TreetopTreeHouse2 {
 
-	private final static String INPUT_LOCATION = "C:\\Users\\Matthew Boyd\\Documents\\code\\advent-of-code-2022\\AoC2022\\src\\day8\\input.txt";
+	private final static String INPUT_LOCATION = "C:\\Users\\Matthew Boyd\\Documents\\code\\advent-of-code-2022\\AoC2022\\src\\day08\\input.txt";
 
 	private static int getFileHeight(String fileName) throws IOException {
 		int count = 0;

@@ -1,4 +1,4 @@
-package day3;
+package day03;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class RucksackReorganization {
 
-	private final static String INPUT_LOCATION = "C:\\Users\\Matthew Boyd\\Documents\\code\\advent-of-code-2022\\AoC2022\\src\\day3\\input.txt";
+	private final static String INPUT_LOCATION = "C:\\Users\\Matthew Boyd\\Documents\\code\\advent-of-code-2022\\AoC2022\\src\\day03\\input.txt";
 
 	public static void main(String[] args) {
 		ArrayList<String[]> data = new ArrayList<>();

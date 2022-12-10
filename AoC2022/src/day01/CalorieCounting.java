@@ -1,4 +1,4 @@
-package day1;
+package day01;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -9,7 +9,7 @@ import java.util.Collections;
 
 public class CalorieCounting {
 
-	private final static String INPUT_LOCATION = "C:\\Users\\Matthew Boyd\\Documents\\code\\advent-of-code-2022\\AoC2022\\src\\day1\\input.txt";
+	private final static String INPUT_LOCATION = "C:\\Users\\Matthew Boyd\\Documents\\code\\advent-of-code-2022\\AoC2022\\src\\day01\\input.txt";
 
 	public static void main(String[] args) {
 		ArrayList<Integer> data = new ArrayList<>();
