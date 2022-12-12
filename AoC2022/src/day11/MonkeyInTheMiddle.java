@@ -27,15 +27,11 @@ public class MonkeyInTheMiddle {
 			e.printStackTrace();
 		}
 		MonkeyManager manager = new MonkeyManager(data.toArray(new String[data.size()]));
-//		System.out.println(manager);
-		for (int round = 0; round < 20; round++) {
+		for (int round = 0; round < 10000; round++) {
 			for (int i = 0; i < manager.monkeyList.size(); i++) {
 				manager.updateMonkey(i);
 			}
 		}
-//		System.out.println("------------------------");
-//		System.out.println(manager);
-//		System.out.println("------------------------");
 		System.out.println(manager.getMonkeyBusiness());
 	}
 }

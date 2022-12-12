@@ -5,22 +5,22 @@ import java.util.ArrayList;
 public class Monkey {
 
 	public int id;
-	public ArrayList<Integer> items;
+	public ArrayList<Long> items;
 	public String operation;
 	public String test;
 	public int trueMonkeyInt;
 	public int falseMonkeyInt;
-	public int inspectionCount = 0;
+	public long inspectionCount = 0;
 
 	public Monkey(String[] input) {
 		String id = input[0].split(" ")[1];
 		String id2 = id.substring(0, id.length() - 1);
 		this.id = Integer.parseInt(id2);
-		ArrayList<Integer> items = new ArrayList<Integer>();
+		ArrayList<Long> items = new ArrayList<>();
 		String stringItems = input[1].substring(18, input[1].length());
 		String[] arrayItems = stringItems.split(", ");
 		for (String item : arrayItems) {
-			items.add(Integer.parseInt(item));
+			items.add(Long.parseLong(item));
 		}
 		this.items = items;
 		this.operation = input[2].substring(13, input[2].length());
@@ -31,14 +31,14 @@ public class Monkey {
 		this.falseMonkeyInt = Integer.parseInt(falseMonkey);
 	}
 
-	public void addItem(int item) {
+	public void addItem(long item) {
 		this.items.add(item);
 	}
 	public void removeItem(int index) {
 		this.items.remove(index);
 		inspectionCount++;
 	}
-	public int getInspectionCount() {
+	public long getInspectionCount() {
 		return this.inspectionCount;
 	}
 	
