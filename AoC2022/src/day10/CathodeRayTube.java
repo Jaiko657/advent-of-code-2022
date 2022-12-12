@@ -26,25 +26,8 @@ public class CathodeRayTube {
 		}
 
 		CPU cpu = new CPU(lines.toArray(new String[lines.size()]));
-		int sumStrength = 0;
-		for (int i = 1; i <= 220; i++) {
-			int registerX = cpu.cycleClock();
-			switch ((i + 1)) {
-			case 20:
-			case 60:
-			case 100:
-			case 140:
-			case 180:
-			case 220:
-				System.out.print((i + 1) + ": " + registerX);
-				int newStrength = (i + 1) * registerX;
-				System.out.println(" "+newStrength);
-				if (sumStrength == 0)
-					sumStrength = newStrength;
-				else
-					sumStrength += newStrength;
-			}
+		for (int i = 1; i <= 240; i++) {
+			cpu.cycleClock();
 		}
-		System.out.println(sumStrength);
 	}
 }
